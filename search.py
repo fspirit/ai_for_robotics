@@ -27,8 +27,6 @@ def run_a_star_search(grid, heuristic, action_cost):
 
         next_point_candidates = [current_point + move for move in moves if can_move_to(current_point + move)]
 
-        print(next_point_candidates)
-
         if len(next_point_candidates) == 0:
             return False
 
@@ -51,14 +49,18 @@ if __name__ == "__main__":
                      [0, 1, 0, 0, 0, 0],
                      [0, 1, 0, 0, 0, 0],
                      [0, 0, 0, 0, 1, 0]])
+
+    print('Grid:')
+    print(grid)
+
     heuristic = np.array([[9, 8, 7, 6, 5, 4],
                           [8, 7, 6, 5, 4, 3],
                           [7, 6, 5, 4, 3, 2],
                           [6, 5, 4, 3, 2, 1],
                           [5, 4, 3, 2, 1, 0]])
 
-    print('Grid:')
-    print(grid)
+    print('Heuristic:')
+    print(heuristic)
 
     result, path = run_a_star_search(grid, heuristic, action_cost=1)
 
